@@ -1,12 +1,23 @@
 import { motion } from 'framer-motion';
+import slideVideo from '../assets/videos/slide.mp4';
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-primary-100 via-accent-50 to-primary-50">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-radial from-accent-200/20 to-transparent" />
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent-200/20 rounded-full blur-3xl" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-200/20 rounded-full blur-3xl" />
+    <section id="hero" className="min-h-screen relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={slideVideo} type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
         <motion.div
@@ -19,7 +30,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 mb-4"
+            className="text-5xl md:text-7xl font-bold text-white mb-4"
           >
             Manisha Sharma
           </motion.h1>
@@ -27,7 +38,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-4xl font-semibold text-primary-600 mb-6"
+            className="text-3xl md:text-4xl font-semibold text-primary-100 mb-6"
           >
             CARPET DESIGNER
           </motion.h2>
@@ -35,7 +46,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto mb-8"
+            className="text-xl text-gray-100 max-w-2xl mx-auto mb-8"
           >
             Passionate carpet designer with expertise in creating unique and elegant designs.
             Specializing in customization and color matching for luxury carpets.
@@ -65,12 +76,12 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-6 h-6 border-2 border-primary-500 rounded-full flex items-center justify-center"
+              className="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center"
             >
               <motion.div
                 animate={{ y: [0, 4, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1 h-1 bg-primary-500 rounded-full"
+                className="w-1 h-1 bg-white rounded-full"
               />
             </motion.div>
           </motion.div>

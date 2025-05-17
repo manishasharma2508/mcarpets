@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useRef } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,12 +18,24 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setSubmitStatus('success');
-      console.log('Form submitted:', formData);
+      if (form.current) {
+        const result = await emailjs.sendForm(
+          'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+          'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+          form.current,
+          'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        );
+
+        if (result.text === 'OK') {
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          setSubmitStatus('error');
+        }
+      }
     } catch (error) {
+      console.error('Email send error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -137,6 +151,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <motion.form
+              ref={form}
               onSubmit={handleSubmit}
               className="space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg"
               initial={{ opacity: 0, x: 20 }}
@@ -152,6 +167,7 @@ const Contact = () => {
                   whileFocus={{ scale: 1.01 }}
                   type="text"
                   id="name"
+                  name="user_name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-shadow"
@@ -167,6 +183,7 @@ const Contact = () => {
                   whileFocus={{ scale: 1.01 }}
                   type="email"
                   id="email"
+                  name="user_email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-shadow"
@@ -181,6 +198,7 @@ const Contact = () => {
                 <motion.textarea
                   whileFocus={{ scale: 1.01 }}
                   id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}

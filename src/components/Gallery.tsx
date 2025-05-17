@@ -1,41 +1,63 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 // Import the image
-import image1 from '../assets/images/image1.jpg';
-
+import image1 from '../assets/images/image1.png';
+import image2 from '../assets/images/image2.png';
+import image3 from '../assets/images/image3.png';
+import image4 from '../assets/images/image4.png';
+import image5 from '../assets/images/image5.png';
+import image6 from '../assets/images/image6.png';
+import image7 from '../assets/images/image7.png';
+import image8 from '../assets/images/image8.png';
+import image9 from '../assets/images/image9.png';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const carpetDesigns = [
     {
-      title: 'Traditional Persian',
-      description: 'Intricate floral patterns with rich colors',
+      title: 'Artistic Expression',
+      description: 'Bold and creative carpet designs',
+      
       image: image1
-    },
-    {
-      title: 'Modern Abstract',
-      description: 'Contemporary design with geometric elements',
-      image: image1 // You can replace this with image2 once available
     },
     {
       title: 'Minimalist Pattern',
       description: 'Simple and elegant repeating motifs',
-      image: image1 // You can replace this with image3 once available
+      
+      image: image2 // You can replace this with image2 once available
+    },
+    {
+      title: 'Traditional Persian',
+      description: 'Intricate floral patterns with rich colors',
+      
+      image: image3 // You can replace this with image3 once available
     },
     {
       title: 'Luxury Collection',
       description: 'Premium designs for high-end interiors',
-      image: image1 // You can replace this with image4 once available
+      image: image4 // You can replace this with image4 once available
     },
     {
       title: 'Contemporary Fusion',
       description: 'Blend of traditional and modern elements',
-      image: image1 // You can replace this with image5 once available
+      image: image5 // You can replace this with image5 once available
     },
     {
       title: 'Artistic Expression',
       description: 'Bold and creative carpet designs',
-      image: image1 // You can replace this with image6 once available
+      image: image6 // You can replace this with image6 once available
+    },{
+      title: 'Artistic Expression',
+      description: 'Bold and creative carpet designs',
+      image: image7 // You can replace this with image6 once available
+    },{
+      title: 'Traditional Persian',
+      description: 'Intricate floral patterns with rich colors',
+      
+      image: image8 // You can replace this with image6 once available
+    },{title: 'Modern Abstract',
+      description: 'Contemporary design with geometric elements',
+      image: image9 // You can replace this with image6 once available
     }
   ];
 

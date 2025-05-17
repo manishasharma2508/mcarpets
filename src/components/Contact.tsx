@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, FormEvent } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,6 +33,11 @@ const Contact = () => {
       icon: <FaPhone className="w-6 h-6" />,
       text: '+91 7355590597',
       href: 'tel:+917355590597'
+    },
+    {
+      icon: <FaWhatsapp className="w-6 h-6" />,
+      text: 'WhatsApp',
+      href: 'https://wa.me/917355590597'
     },
     {
       icon: <FaEnvelope className="w-6 h-6" />,

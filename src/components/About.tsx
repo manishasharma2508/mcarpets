@@ -61,13 +61,26 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">About Me</h2>
-          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            I believe a career in Carpet & Textile Industry would offer me a lot of opportunities to
-            apply my problem solving and people skills to real life situations and make a difference
-            to the industry around me.
-          </p>
+          <div className="text-center text-gray-600 mb-12 max-w-3xl mx-auto space-y-4">
+            <p className="leading-relaxed">
+              As a passionate Carpet and Textile Designer with expertise in both traditional and contemporary designs, 
+              I bring creativity and technical precision to every project. My journey in this field has been driven by 
+              a deep appreciation for artisanal craftsmanship combined with modern design technologies.
+            </p>
+            <p className="leading-relaxed">
+              With a strong foundation in digital design tools and traditional techniques, I specialize in creating 
+              unique carpet patterns that blend aesthetic beauty with practical functionality. My work ranges from 
+              intricate Persian-inspired designs to modern, minimalist patterns, always focusing on quality and 
+              attention to detail.
+            </p>
+            <p className="leading-relaxed">
+              I believe in collaborative innovation and have successfully led design teams in creating collections 
+              that meet both artistic vision and market demands. My experience includes working with various materials, 
+              techniques, and international design standards to create carpets that enhance any space they occupy.
+            </p>
+          </div>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {skills.map((category, categoryIndex) => (
               <motion.div
                 key={category.category}
@@ -75,39 +88,44 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
                 viewport={{ once: true }}
+                className="bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-lg"
               >
-                <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
+                <h3 className="text-xl font-semibold text-gray-800 mb-6 text-center">
                   {category.category}
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="space-y-4">
                   {category.items.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-                      whileHover={{ y: -5 }}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      className="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow"
+                      whileHover={{ x: 3 }}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="flex items-center space-x-3">
                         <motion.div
-                          className="text-4xl text-primary-500"
+                          className="text-xl text-primary-500 flex-shrink-0"
                           whileHover={{ scale: 1.1, rotate: 5 }}
                         >
                           {skill.icon}
                         </motion.div>
-                        <h4 className="text-lg font-medium text-gray-800">{skill.name}</h4>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5">
-                          <motion.div
-                            className="h-2.5 rounded-full bg-gradient-to-r from-primary-500 to-accent-500"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            viewport={{ once: true }}
-                          />
+                        <div className="flex-grow">
+                          <h4 className="text-sm font-medium text-gray-800 mb-1">{skill.name}</h4>
+                          <div className="w-full bg-gray-200 rounded-full h-1.5">
+                            <motion.div
+                              className="h-1.5 rounded-full bg-gradient-to-r from-primary-500 to-accent-500"
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${skill.level}%` }}
+                              transition={{ duration: 1, delay: 0.5 }}
+                              viewport={{ once: true }}
+                            />
+                          </div>
                         </div>
-                        <span className="text-sm text-gray-600">{skill.level}%</span>
+                        <span className="text-xs text-gray-600 flex-shrink-0 w-8 text-right">
+                          {skill.level}%
+                        </span>
                       </div>
                     </motion.div>
                   ))}

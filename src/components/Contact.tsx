@@ -49,17 +49,17 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <FaLinkedin className="w-6 h-6" />,
-      href: '#',
+      href: 'https://www.linkedin.com/in/manisha-sharma-214ba53b/',
       label: 'LinkedIn'
     },
     {
       icon: <FaGithub className="w-6 h-6" />,
-      href: '#',
+      href: 'https://github.com/manishasharma2508/',
       label: 'GitHub'
     },
     {
       icon: <FaInstagram className="w-6 h-6" />,
-      href: '#',
+      href: 'https://www.instagram.com/floorcanvas_fbd/',
       label: 'Instagram'
     }
   ];

@@ -1,12 +1,11 @@
-
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Education from './components/Education';
-import Experience from './components/Experience';
+import Timeline from './components/Timeline';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SocialFeed from './components/SocialFeed';
 
 function App() {
   return (
@@ -15,9 +14,9 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Education />
-        <Experience />
+        <Timeline />
         <Gallery />
+        <SocialFeed />
         <Contact />
       </main>
       <Footer />

@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+// Import the image
+import image1 from '../assets/images/image1.jpg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -8,32 +10,32 @@ const Gallery = () => {
     {
       title: 'Traditional Persian',
       description: 'Intricate floral patterns with rich colors',
-      image: 'https://images.unsplash.com/photo-1600166898405-da9535204843?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: image1
     },
     {
       title: 'Modern Abstract',
       description: 'Contemporary design with geometric elements',
-      image: 'https://images.unsplash.com/photo-1600166516449-ae6bf4d45999?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: image1 // You can replace this with image2 once available
     },
     {
       title: 'Minimalist Pattern',
       description: 'Simple and elegant repeating motifs',
-      image: 'https://images.unsplash.com/photo-1600166528504-d6c56fd8c7d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: image1 // You can replace this with image3 once available
     },
     {
       title: 'Luxury Collection',
       description: 'Premium designs for high-end interiors',
-      image: 'https://images.unsplash.com/photo-1600166490892-f95a8fc4e876?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: image1 // You can replace this with image4 once available
     },
     {
       title: 'Contemporary Fusion',
       description: 'Blend of traditional and modern elements',
-      image: 'https://images.unsplash.com/photo-1600166634402-7cba6fed8c0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: image1 // You can replace this with image5 once available
     },
     {
       title: 'Artistic Expression',
       description: 'Bold and creative carpet designs',
-      image: 'https://images.unsplash.com/photo-1600166862715-18d4517b7d4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      image: image1 // You can replace this with image6 once available
     }
   ];
 

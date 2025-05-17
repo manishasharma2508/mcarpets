@@ -4,13 +4,14 @@ import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
     { name: 'Home', to: 'hero' },
     { name: 'About', to: 'about' },
-    { name: 'Education', to: 'education' },
-    { name: 'Experience', to: 'experience' },
+    { name: 'Journey', to: 'timeline' },
     { name: 'Gallery', to: 'gallery' },
+    { name: 'Social Feed', to: 'social-feed' },
     { name: 'Contact', to: 'contact' },
   ];
 
@@ -29,9 +30,15 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.to}
+                  spy={true}
                   smooth={true}
                   duration={500}
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md cursor-pointer"
+                  onSetActive={() => setActiveSection(item.to)}
+                  className={`px-3 py-2 rounded-md cursor-pointer transition-colors duration-200 ${
+                    activeSection === item.to
+                      ? 'text-primary-600 font-medium bg-primary-50'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -59,9 +66,15 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.to}
+                spy={true}
                 smooth={true}
                 duration={500}
-                className="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md cursor-pointer"
+                onSetActive={() => setActiveSection(item.to)}
+                className={`block px-3 py-2 rounded-md cursor-pointer transition-colors duration-200 ${
+                  activeSection === item.to
+                    ? 'text-primary-600 font-medium bg-primary-50'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

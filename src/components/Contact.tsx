@@ -21,10 +21,10 @@ const Contact = () => {
     try {
       if (form.current) {
         const result = await emailjs.sendForm(
-          'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-          'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+          'service_bbsp89k', // Replace with your EmailJS service ID
+          'template_fakjcke', // Replace with your EmailJS template ID
           form.current,
-          'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+          'vpVKbQZ5Z0W-V1ZDy' // Replace with your EmailJS public key
         );
 
         if (result.text === 'OK') {
